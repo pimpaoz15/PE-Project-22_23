@@ -1,0 +1,10 @@
+set.seed(1275)
+amostra <- rexp(2493, rate=12.5)
+sj <- cumsum(amostra)
+T <- ceiling(sj[2493])
+subintervalos <- seq(1, T, by=1)
+contagem <- table(cut(sj, breaks=subintervalos, right=FALSE))
+media_obs <- mean(contagem)
+media_teorica <- length(sj) / T
+desvio_absoluto <- abs(media_obs - media_teorica)
+desvio_absoluto <- round(desvio_absoluto, 4)
