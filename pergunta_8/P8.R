@@ -27,7 +27,7 @@ ggplot() +
   geom_line(data = cauchy_data, aes(x = Quantile, y = Value, color = "Cauchy"), linetype = "solid") +
   geom_line(data = normal_data, aes(x = Quantile, y = Value, color = "Normal"), linetype = "solid") +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
-  labs(x = "Quantiles de Probabilidade", y = "Valores Ordenados", 
+  labs(x = "Quantis de probabilidade", y = "Valores gerados ordenados", 
        title = "Amostras de Cauchy e Normal") +
   theme_minimal() +
   guides(color = guide_legend(title = "Variáveis"))
