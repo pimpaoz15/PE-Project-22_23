@@ -20,6 +20,7 @@ sd_ddesemp <- sd(data1984$ddesemp)
 mean_tpp <- mean(data1984$tpp)
 sd_tpp <- sd(data1984$tpp)
 
+
 # Apply the transformation to the data associated with each variable
 data_transformed <- data1984 %>% mutate(z_ddesemp = (ddesemp - mean_ddesemp) / sd_ddesemp, z_tpp = (tpp - mean_tpp) / sd_tpp)
 
