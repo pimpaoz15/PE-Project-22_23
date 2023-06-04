@@ -22,6 +22,7 @@ print(absolute_deviation)
 
 # OU será assim
 
+
 # set seed
 set.seed(1275)
 
