@@ -1,3 +1,6 @@
+# RESPOSTA EXCEL ->
+
+############################################################################################################
 # Set seed
 set.seed(1275)
 
@@ -19,10 +22,7 @@ absolute_deviation <- round(absolute_deviation, 4)
 print(absolute_deviation)
 
 
-
-# OU será assim
-
-
+############################################################################################################
 # set seed
 set.seed(1275)
 
@@ -43,7 +43,3 @@ desvio_absoluto <- round(desvio_absoluto, 4)
 
 # print result
 print(desvio_absoluto)
-
-
-
-

@@ -1,3 +1,7 @@
+# Resposta Excel ->
+
+####################################################################################################
+
 # Set the seed for reproducibility
 set.seed(1544)
 
@@ -20,15 +24,17 @@ cauchy_data <- data.frame(Quantile = quantiles, Value = sorted_cauchy_sample)
 normal_data <- data.frame(Quantile = quantiles, Value = sorted_normal_sample)
 
 # Save plot to a PDF file
-pdf(file = '/Users/pimpao/Library/CloudStorage/OneDrive-Personal/Code/R/Projeto PE 22_23/pergunta_8/Rplot.pdf', width = 10, height = 10)
+pdf(file = "/Users/pimpao/Library/CloudStorage/OneDrive-Personal/Code/R/Projeto PE 22_23/pergunta_8/Rplot.pdf", width = 10, height = 10)
 
 # Generate the plot
 ggplot() +
   geom_line(data = cauchy_data, aes(x = Quantile, y = Value, color = "Cauchy"), linetype = "solid") +
   geom_line(data = normal_data, aes(x = Quantile, y = Value, color = "Normal"), linetype = "solid") +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
-  labs(x = "Quantis de probabilidade", y = "Valores gerados ordenados", 
-       title = "Amostras de Cauchy e Normal") +
+  labs(
+    x = "Quantis de probabilidade", y = "Valores gerados ordenados",
+    title = "Amostras de Cauchy e Normal"
+  ) +
   theme_minimal() +
   guides(color = guide_legend(title = "Variáveis"))
 
