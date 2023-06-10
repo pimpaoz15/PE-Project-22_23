@@ -1,15 +1,15 @@
 library(ggplot2)
 
 # Set the seed for reproducibility
-set.seed(1532)
+set.seed(1158)
 
 # Define the sample sizes
 n_values <- c(30, 50, 100, 200, 300, 500, 1000)
 
 # Constants
-k <- 2500
+k <- 1500
 gamma <- 0.98
-prob <- 0.3
+prob <- 0.7
 
 # Function to calculate confidence interval length using method 1
 calculate_ci_length_method1 <- function(n, z) {
@@ -31,7 +31,7 @@ calculate_ci_length_method2 <- function(x_bar, n) {
 
 # Calculate difference in means for each sample size
 diff_means <- sapply(n_values, function(n) {
-  z <- qnorm((1 + gamma)/2)
+  z <- qnorm((1 + gamma) / 2)
   samples <- matrix(rbinom(k * n, size = 1, prob = prob), nrow = k)
   x_bars <- colMeans(samples)
   ci_lengths_method1 <- calculate_ci_length_method1(n, z)
@@ -44,7 +44,7 @@ diff_means <- sapply(n_values, function(n) {
 data <- data.frame(n = n_values, diff_means = diff_means)
 
 # Save plot to a PDF file
-pdf(file = '/Users/pimpao/Library/CloudStorage/OneDrive-Personal/Code/R/Projeto PE 22_23/pergunta_9/Rplot.pdf', width = 10, height = 10)
+pdf(file = "/Users/pimpao/Library/CloudStorage/OneDrive-Personal/Code/R/Projeto PE 22_23/pergunta_9/Rplot.pdf", width = 10, height = 10)
 
 # Generate the plot
 ggplot(data, aes(x = n, y = diff_means)) +
