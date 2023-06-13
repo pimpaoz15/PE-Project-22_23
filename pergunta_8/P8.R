@@ -1,23 +1,23 @@
 # Resposta Excel ->
 
 ####################################################################################################
-
+library(ggplot2)
 # Set the seed for reproducibility
 set.seed(1544)
 
 # Define the sample size
-sample_size <- 157
+n <- 157
 
 # Generate Cauchy sample
-cauchy_sample <- rcauchy(sample_size, location = 3.2, scale = 2)
+cauchy_sample <- rcauchy(n, location = 3.2, scale = 2)
 sorted_cauchy_sample <- sort(cauchy_sample)
 
 # Generate Normal sample
-normal_sample <- rnorm(sample_size, mean = 3.4, sd = 4)
+normal_sample <- rnorm(n, mean = 3.4, sd = 4)
 sorted_normal_sample <- sort(normal_sample)
 
 # Calculate quantiles
-quantiles <- (1:sample_size) / (sample_size + 1)
+quantiles <- (1:n) / (n + 1)
 
 # Create data frames
 cauchy_data <- data.frame(Quantile = quantiles, Value = sorted_cauchy_sample)

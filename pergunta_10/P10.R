@@ -2,19 +2,19 @@
 
 ####################################################################################################
 # Set the seed to 615
-set.seed(131)
+set.seed(615)
 
 # Generate 100 samples of size 31 from a normal distribution
-m <- 300
-n <- 45
-mu <- 38.7
+m <- 100
+n <- 31
+mu <- 72.6
 sigma_sq <- 4
 
 samples <- matrix(rnorm(m * n, mean = mu, sd = sqrt(sigma_sq)), nrow = n)
 
 # Perform t-test for each sample
-null_value <- 37.5
-alpha <- 0.02
+null_value <- 71.4
+alpha <- 0.1
 
 results <- vector("list", m)
 

@@ -1,45 +1,25 @@
-# RESPOSTA EXCEL ->
+# 1. Generate sample from Exponential distribution
+set.seed(3225) # Fix the seed
+lambda <- 27
+N <- 1820
+amostra <- rexp(N, rate = 1 / lambda) # Sampling
 
-############################################################################################################
-# Set seed
-set.seed(1275)
+# 2. Calculate the occurrence times of events
+sn <- rep(0, N) # Initialize a vector with 1820 positions filled with zeros
+sn[1] <- amostra[1]
+for (i in 2:N) {
+    sn[i] <- sn[i - 1] + amostra[i]
+}
+T <- ceiling(sn[N])
 
-# Generate sample
-sample <- rexp(2493, rate = 12.5)
+# 3. Count the number of occurrences in each unit interval
+subT <- rep(0, T)
+for (i in 1:N) {
+    subT[trunc(sn[i])] <- subT[trunc(sn[i])] + 1
+}
 
-# Set parameters
-sj <- cumsum(sample)
-T <- ceiling(sj[2493])
-
-# Set unitary subintervals
-subintervals <- seq(1, T, by = 1)
-count <- table(cut(sj, breaks = subintervals, right = FALSE)) # right = FALSE argument specifies that the intervals should be left-closed and right-open.
-obs_mean <- mean(count)
-absolute_deviation <- abs(obs_mean - 12.5)
-absolute_deviation <- round(absolute_deviation, 4)
-
-# Print result
-print(absolute_deviation)
-
-
-############################################################################################################
-# set seed
-set.seed(1275)
-
-# generate sample
-amostra <- rexp(2493, rate = 12.5)
-
-# set parameters
-sj <- cumsum(amostra)
-T <- ceiling(sj[2493])
-
-# set unitary subintervals
-subintervalos <- seq(1, T, by = 1)
-contagem <- table(cut(sj, breaks = subintervalos, right = FALSE)) # right = FALSE argument specifies that the intervals should be left-closed and right-open.
-media_obs <- mean(contagem)
-media_teorica <- length(sj) / T
-desvio_absoluto <- abs(media_obs - media_teorica)
-desvio_absoluto <- round(desvio_absoluto, 4)
-
-# print result
-print(desvio_absoluto)
+# 4. Calculate average and absolute deviation
+media <- sum(subT) / T
+vesperado <- 1 / lambda
+desvio_abs <- abs(media - vesperado)
+round(desvio_abs, digits = 4)

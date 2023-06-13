@@ -1,9 +1,9 @@
 # Resposta Excel ->
 
 ####################################################################################################
-set.seed(1235) # Fixar a semente
-N <- 1139 # numero de amostras
-p <- 0.5
+set.seed(1797) # Fixar a semente
+N <- 1135 # numero de amostras
+p <- 0.2
 
 # função de distribuição
 fx <- rep(0, N) # inicializar um vetor a zeros com N posições
@@ -17,10 +17,10 @@ X <- rep(0, N) # inicializar um vetor a zeros com N posições
 i <- 1
 while (i <= N) {
     u <- rnorm(1, 0, 1)
-    if (u >= 0 & u <= 1) {
+    if (u >= 0 && u <= 1) {
         buffer <- 1
         for (x in 2:N) {
-            if (u > fx[x - 1] & u <= fx[x]) {
+            if (u > fx[x - 1] && u <= fx[x]) {
                 buffer <- x
             }
         }

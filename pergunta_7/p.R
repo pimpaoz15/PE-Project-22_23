@@ -1,16 +1,15 @@
+# Resposta Excel ->
+
+####################################################################################################
 set.seed(1114) # Fixar a semente
 m <- 1248
 n <- 10
 p <- 0.47
 
-# amostra
-X <- matrix(rnorm(m * n, 0, 1), nrow = m, ncol = n)
-
-# Para cada uma das amostras, calcule a soma dos quadrados dos valores observados
-Y <- rep(0, m)
+Y <- matrix(NA, m, n, TRUE)
 for (i in 1:m) {
     for (j in 1:n) {
-        Y[i] <- Y[i] + X[i, j]
+        Y[i, j] <- rnorm(1, 0, 1)
     }
 }
 
@@ -21,4 +20,5 @@ quantil_047 <- quantile(Y, probs = p, type = 2) # quantil de probabilidade 0.47
 quantil <- qchisq(p, df = 1, ncp = 0)
 Resultado <- quantil_047 - quantil
 Resultado <- round(Resultado, digits = 4)
+
 print(Resultado)
