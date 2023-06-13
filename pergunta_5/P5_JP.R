@@ -1,9 +1,9 @@
 # seed
-set.seed(1797)
+set.seed(1235)
 
-n <- 1135
+n <- 1139
 
-p <- 0.2
+p <- 0.5
 
 xsim <- numeric()
 

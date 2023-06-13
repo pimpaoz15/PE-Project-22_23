@@ -1,9 +1,9 @@
 # Resposta Excel ->
 
 ####################################################################################################
-set.seed(1797) # Fixar a semente
-N <- 1135 # numero de amostras
-p <- 0.2
+set.seed(1235) # Fixar a semente
+N <- 1139 # numero de amostras
+p <- 0.5
 
 # função de distribuição
 fx <- rep(0, N) # inicializar um vetor a zeros com N posições

@@ -1,7 +1,7 @@
 # Seed
-set.seed(3235)
+set.seed(1275)
 # Geração da amostra (os valores correspondem aos tempos entre acontecimentos sucessivos)
-data <- rexp(1820, rate = 27)
+data <- rexp(2493, rate = 12.5)
 # t corresponde ao instante da ocorrência do 1820-ésimo acontecimento (somatório dos tempos)
 t <- Reduce("+", data) # Como 1820 é o ultimo termo, basta somar todos os elementos do array
 t <- ceiling(t) # inteiro mais proximo acima
@@ -19,5 +19,5 @@ for (i in 1:length(data)) {
 vect2 <- cut(vect, 0:t) # dividir o vetor em t intervalos unitarios
 o_table <- table(vect2) # colocar numa tabela o numero de ocurrencias em cada intervalo
 media <- mean(o_table)
-desvio_abs <- abs(media - 27)
+desvio_abs <- abs(media - 12.5)
 print(desvio_abs)

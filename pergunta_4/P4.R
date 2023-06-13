@@ -1,7 +1,7 @@
 # 1. Generate sample from Exponential distribution
-set.seed(3225) # Fix the seed
-lambda <- 27
-N <- 1820
+set.seed(1275) # Fix the seed
+lambda <- 12.5
+N <- 2493
 amostra <- rexp(N, rate = 1 / lambda) # Sampling
 
 # 2. Calculate the occurrence times of events
