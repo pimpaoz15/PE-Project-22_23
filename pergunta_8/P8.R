@@ -1,6 +1,3 @@
-# Resposta Excel ->
-
-####################################################################################################
 library(ggplot2)
 # Set the seed for reproducibility
 set.seed(1544)
@@ -13,7 +10,7 @@ cauchy_sample <- rcauchy(n, location = 3.2, scale = 2)
 sorted_cauchy_sample <- sort(cauchy_sample)
 
 # Generate Normal sample
-normal_sample <- rnorm(n, mean = 3.4, sd = 4)
+normal_sample <- rnorm(n, mean = 3.3, sd = 4)
 sorted_normal_sample <- sort(normal_sample)
 
 # Calculate quantiles
