@@ -1,34 +1,22 @@
-# Resposta Excel ->
+set.seed(1306)
+m <- 150
+n <- 33
+alfa <- 0.1
+c <- 1.645
 
-####################################################################################################
-# Set the seed to 615
-set.seed(131)
-
-# Generate 100 samples of size 31 from a normal distribution
-m <- 300
-n <- 45
-mu <- 38.7
-sigma_sq <- 4
-
-samples <- matrix(rnorm(m * n, mean = mu, sd = sqrt(sigma_sq)), nrow = n)
-
-# Perform t-test for each sample
-null_value <- 37.5
-alpha <- 0.02
-
-results <- vector("list", m)
+total <- 0
+samples <- replicate(m, {
+    a <- rnorm(n, 58.4, 2)
+})
 
 for (i in 1:m) {
-    t_stat <- t.test(samples[, i], mu = null_value)$statistic
-    p_value <- t.test(samples[, i], mu = null_value)$p.value
+    b <- samples[1:n, i]
+    z_ho <- (mean(b) - 57.4) / (2 / sqrt(n))
 
-    result <- ifelse(p_value <= alpha, "Reject H0", "Fail to reject H0")
-    results[[i]] <- result
+    if ((z_ho > (-c)) & (z_ho < c)) {
+        total <- total + 1
+    }
 }
+probability <- total / m
 
-# Calculate the estimated probability of not rejecting H0
-num_non_reject <- sum(sapply(results, function(x) x == "Fail to reject H0"))
-estimated_prob <- num_non_reject / m
-
-# Print the estimated probability with 5 decimal digits
-cat("Estimated probability of not rejecting H0:", sprintf("%.3f", estimated_prob), "\n")
+round(probability, 3)

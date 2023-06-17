@@ -30,4 +30,4 @@ a <- length(which(xsim > mean_plus_sd))
 b <- length(which(xsim > mean(xsim)))
 
 final <- a / b
-print(final)
+round(final, 4)
