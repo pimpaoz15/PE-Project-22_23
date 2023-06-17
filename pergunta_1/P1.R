@@ -5,7 +5,6 @@ library(ggplot2)
 library(lubridate)
 
 # Set path where all data is located || latter it will be the directory where the plot will be saved
-# If u use RStudio as long as all files are on the same folder, you don't need this line, i'm using VSCode/NeoVIM
 setwd('/Users/pimpao/Library/CloudStorage/OneDrive-Personal/Code/R/Projeto PE 22_23/pergunta_1')
 
 # Load the data

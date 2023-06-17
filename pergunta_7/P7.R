@@ -5,7 +5,7 @@ n <- 18
 p <- 0.31
 
 # amostra
-X <- matrix(rnorm(m * n, 0, 1), nrow = m, ncol = n)
+X <- matrix(rnorm(m * n, 0, 1), nrow = m, ncol = n, byrow = TRUE)
 
 # Para cada uma das amostras, calcule a soma dos quadrados dos valores observados
 Y <- rep(0, m)

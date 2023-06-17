@@ -1,6 +1,6 @@
-set.seed(1275)
-k <- 2493
-lambda <- 12.5
+set.seed(3225)
+k <- 1820
+lambda <- 27
 x <- rexp(k, lambda)
 s <- cumsum(x)
 T <- ceiling(s[k])
